@@ -1,10 +1,6 @@
 import random
 import math
 
-# //formula: 
-# //1. grab current distance from destination. shrink it by number of guesses ratio (maxguesses-guess)/maxguesses
-# //2. use the above as the radius. 
-# //3. generate a number from [0-radius]. use this number to offset from the destination in any direction and get a random point
 
 #range (0-100, 0-100)
 
