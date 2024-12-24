@@ -8,18 +8,20 @@ import math
 
 #range (0-100, 0-100)
 
-coord = tuple(map(int, input().split()))
-dest = (random.randint(1, 100), random.randint(1, 100))
+def haversine_distance(dist1, dist2) -> int:
+    pass
 
-distance =  math.sqrt((coord[1]-dest[1])**2 + (coord[0]-dest[0])**2)
-radius = random.randint(1, distance)
-angle = random.randint(0, 360)
+def euclid_distance(dist1, dist2) -> int:
+    return math.sqrt((dist1[0] - dist2[0])**2 + (dist1[1] - dist2[1])**2)
 
-center = (coord )
+def offset(limit, coords) -> tuple:
+    offset = random.uniform(0, limit) #generate radius offset from center, always <= from center, so drawn will include circle
+    theta = random.uniform(0, 2 * math.pi)
+    return coords[0] + offset*math.cos(theta), coords[1] + offset*math.sin(theta)
 
-#center radius must be greater than center > distance
+def circle(guess, target, g, maxg) -> Tuple[tuple, int]:
+    dist = euclid_distance(guess, target) * ((maxg-g)/g) #guess radius
+    center = offset(dist, target)
+    return center, dist
 
-
-
-
-#or just make offset circle
+#make visualization for this
